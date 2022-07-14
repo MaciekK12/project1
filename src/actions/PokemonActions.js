@@ -69,6 +69,9 @@ export const resetArenaPokemon = () => async dispatch => {
         dispatch({
             type: "POKEMON_ARENA_RESET", 
         })
+        dispatch({
+            type: "POKEMON_ARENA_RESET_2", 
+        })
     } catch (error) {
         console.log(error)
     }
@@ -133,16 +136,6 @@ export const fightArenaPokemon = (arenaFightData) => async dispatch => {
             pokemonLostPayload: pokeLost,
             payload: pokemonArray 
         }) 
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-export const fightArenaPokemonBefore = () => async dispatch => {
-    try {
-        dispatch({
-            type: "POKEMON_FIGHT_ARENA_BEFORE", 
-        })
     } catch (error) {
         console.log(error)
     }

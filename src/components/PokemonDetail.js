@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 const PokemonDetail = () => {
   const location = useLocation()
   const pokemon = location.pathname.match(/\d+/)[0]
+  console.log(pokemon)
   const pokemonDetail = useSelector(state => state.PokemonList.data[pokemon-1].data)
 
   return (

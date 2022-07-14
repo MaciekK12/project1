@@ -21,6 +21,8 @@ const FavBtn = ({id}) => {
   return (
     <IconButton
       sx={{
+        pt: 0,
+        pr:0,
         color: isFav ? 'darkred' : 'lightgray', 
         "&:hover": {
           color: "red",

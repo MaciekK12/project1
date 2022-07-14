@@ -8,14 +8,15 @@ import FavBtn from "./FavBtn"
 import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
 import ArenaBtn from "./ArenaBtn"
-import {Link, useLocation} from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+// import PokemonDetail from "./components/PokemonDetail"
 
 const useStyles = makeStyles((theme) => ({
   card: {
     display: 'flex',
     flexDirection: 'column',
     width: 270,
-    height: 420,
+    height: 435,
     justifyContent:'space-between',    
     transition: 'transform 0.15s ease-in-out',
     '&:hover': {
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   pokemonIdNumber: {
     display: 'flex',
     fontSize: 14,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
   avatar: {
     flex: 1,
@@ -112,27 +113,32 @@ const PokemonCard = ({ pokemon }) => {
 
   return (
     <Card className={pokemonLost === pokemon.id && locationData !== '/' ? classes.cardInactive : classes.card} variant="elevation" >
-      <Link to={`/pokemon/${pokemon.id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}> 
-      <CardContent className={classes.cardContent}>
+        <CardContent className={classes.cardContent}>
+          
         <Typography
           className={classes.pokemonIdNumber}
           color="textSecondary"
         >
-          ID: {pokemon.id}
+            ID: {pokemon.id}
+          <FavBtn id={pokemon.id}/>
         </Typography>
+      <Link to={`/pokemon/${pokemon.id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}> 
+
           <div className={classes.avatarContainer}>
             <img
               alt={pokemon.name}
               src={`http://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
               className={classes.avatar}
             />
-          </div>          
+          </div> 
+          
         <Typography
             variant="h6"  
           className={classes.pokeName}  
         >
           {pokemon.name}
-        </Typography>
+          </Typography>
+          
         <Grid container className={classes.statContainer}>
           <Grid item xs={6} sx={{ mb: 1 }}>
             <Grid className={classes.stat}>{pokemon.height}</Grid>
@@ -158,11 +164,11 @@ const PokemonCard = ({ pokemon }) => {
               Ability
             </Typography>
           </Grid>
-        </Grid>
-        </CardContent>
+          </Grid>
         </Link>
+          
+        </CardContent>
       <CardActions className={classes.cardActions}>
-        <FavBtn id={pokemon.id} />
           <ArenaBtn id={pokemon.id} />
         <div className={classes.arenaStatsContainer}>
           <div className={classes.arenaStatsWon}>Won: {showArenaData.won}</div>

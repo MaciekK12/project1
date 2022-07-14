@@ -24,20 +24,15 @@ const PokemonArenaReducer = (state = initialState, action) => {
   } else if ( action.type === "POKEMON_ARENA_RESET") {
     return {
       ...state,
-      data: []
+      data: [],
+      fightDone: false
       }
   } else if(action.type === "POKEMON_FIGHT_ARENA_AFTER") {
     return {
         ...state,
         fightDone: true
     }
-  } else if(action.type === "POKEMON_FIGHT_ARENA_BEFORE") {
-    return {
-        ...state,
-        fightDone: false
-    }
-  }
-    
+  }    
      return state
 }
 

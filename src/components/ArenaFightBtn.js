@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@mui/material/Button";
-import { fightArenaPokemon, resetArenaPokemon, fightArenaPokemonAfter, fightArenaPokemonBefore } from "../actions/PokemonActions";
+import { fightArenaPokemon, resetArenaPokemon, fightArenaPokemonAfter } from "../actions/PokemonActions";
 import {Link} from "react-router-dom"
 
 const useStyles = makeStyles(() => ({
@@ -99,8 +99,7 @@ const ArenaFightBtn = () => {
   }   
 
   const handleClick2 = () => {
-    dispatch(resetArenaPokemon())
-    dispatch(fightArenaPokemonBefore())
+    dispatch(resetArenaPokemon()) 
   }  
 
   return (

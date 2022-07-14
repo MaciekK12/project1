@@ -12,7 +12,14 @@ const PokemonArenaFightReducer = (state = initialState, action) => {
         pokemonWon: action.pokemonWonPayload,
         pokemonLost: action.pokemonLostPayload
     }
-  } 
+  }
+  else if (action.type === "POKEMON_ARENA_RESET_2") {
+          return {
+        ...state,
+        pokemonWon: '',
+        pokemonLost: ''
+    }
+  }
       return state
 }
 
