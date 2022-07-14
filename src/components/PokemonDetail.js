@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import PokemonCard from './PokemonCard'
-import HomePage from './HomePage'
 import { Grid } from "@mui/material"
 import { useLocation } from 'react-router-dom'
 

@@ -8,10 +8,27 @@ import FavBtn from "./FavBtn"
 import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
 import ArenaBtn from "./ArenaBtn"
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   card: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 270,
+    height: 420,
+    justifyContent:'space-between',    
+    transition: 'transform 0.15s ease-in-out',
+    '&:hover': {
+      transform: 'scale3d(1.02, 1.02, 1)',
+      cursor: 'pointer',
+    },
+    margin: '8px',
+    textAlign: 'center',
+  },
+  cardInactive: {
+    pointerEvents: 'none',
+    opacity: 0.6,
+    filter: 'grayscale(100%)',
     display: 'flex',
     flexDirection: 'column',
     width: 270,
@@ -37,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatarContainer: {
     height: theme.spacing(19),
-      },
+  },
   cardContent: {
     paddingBottom:'0px !important'
   },
@@ -79,9 +96,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const PokemonCard = ({ pokemon }) => {
+  const location = useLocation()
+  const locationData = location.pathname
   const classes = useStyles()
   const pokemonArenaFight = useSelector(state => state.fightArenaPokemon)
-
+  const pokemonLost = useSelector(state => state.fightArenaPokemon.pokemonLost)
+  
   let showArenaData = []
 
   if(pokemonArenaFight.data.length === 0){ 
@@ -91,7 +111,7 @@ const PokemonCard = ({ pokemon }) => {
   }
 
   return (
-    <Card className={classes.card} variant="elevation" >
+    <Card className={pokemonLost === pokemon.id && locationData !== '/' ? classes.cardInactive : classes.card} variant="elevation" >
       <Link to={`/pokemon/${pokemon.id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}> 
       <CardContent className={classes.cardContent}>
         <Typography

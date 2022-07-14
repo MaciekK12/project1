@@ -100,7 +100,7 @@ const ArenaFightBtn = () => {
 
   const handleClick2 = () => {
     dispatch(resetArenaPokemon())
-       dispatch(fightArenaPokemonBefore())
+    dispatch(fightArenaPokemonBefore())
   }  
 
   return (
