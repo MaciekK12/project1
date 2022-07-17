@@ -9,7 +9,6 @@ import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
 import ArenaBtn from "./ArenaBtn"
 import { Link, useLocation } from "react-router-dom"
-// import PokemonDetail from "./components/PokemonDetail"
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: 270,
     height: 435,
-    justifyContent:'space-between',    
+    justifyContent: 'space-between',  
     transition: 'transform 0.15s ease-in-out',
     '&:hover': {
       transform: 'scale3d(1.02, 1.02, 1)',
@@ -33,13 +32,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: 270,
-    height: 420,
+    height: 435,
     justifyContent:'space-between',    
-    transition: 'transform 0.15s ease-in-out',
-    '&:hover': {
-      transform: 'scale3d(1.02, 1.02, 1)',
-      cursor: 'pointer',
-    },
+    transition: 'filter 1s ease-in-out,transform 1s ease-in-out',
+    transform: 'scale3d(0.92, 0.92, 1)',
+    transitionDelay: '0.1s',
     margin: '8px',
     textAlign: 'center',
   },

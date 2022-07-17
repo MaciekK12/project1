@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles(() => ({
   main: {
     display: 'flex',
+    backgroundColor:'white'
   },
   statContainer: {
     padding: '0px 20px 0px 30px'
@@ -26,7 +27,7 @@ const PokemonDetail = () => {
   const pokemonDetail = useSelector(state => state.PokemonList.data[pokemon-1].data)
 
   return (
-    <div className={classes.main}>
+    <div className={classes.main} key={pokemon.id}>
           <div>
         <img
           className={classes.avatar}
@@ -39,20 +40,20 @@ const PokemonDetail = () => {
         <h1 className={classes.avatar}>
           {pokemonDetail.name}
         </h1>
-        <p>
+        <div>
           Weight: {pokemonDetail.weight}
-        </p>
-        <p>
+        </div>
+        <div>
           Height: {pokemonDetail.height}
-        </p>
-        <p>
+        </div>
+        <div>
           Base experience: {pokemonDetail.base_experience}
-        </p>
-        <p>
+        </div>
+        <div>
           Abilities: {pokemonDetail.abilities.map((el) => {
             return <div>- {el.ability.name}</div>
           })}
-        </p>  
+        </div>  
       </div>
     </div>
   )
